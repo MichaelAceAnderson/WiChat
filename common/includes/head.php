@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<!-- On définit le titre de la page -->
-		<title>WebIntraChat</title>		
+		<title>WiChat</title>		
 		<!-- On précise comment est encodée la page -->
 		<meta charset="UTF-8">
 		<!-- On paramètre la largeur de l'appareil -->

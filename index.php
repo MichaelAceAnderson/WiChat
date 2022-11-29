@@ -5,7 +5,7 @@
 	<!-- Contenu de la page -->
 	<section class="main" id="main">
 		<div class="title outlined">
-			<h1>Qu'est-ce que WebIntraChat ?</h1>
+			<h1>Qu'est-ce que WiChat ?</h1>
 			<hr>
 		</div>
 		<p>Paragraphe d'introduction</p>
