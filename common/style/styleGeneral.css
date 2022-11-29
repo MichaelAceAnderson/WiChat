@@ -89,15 +89,15 @@ a {
 
 /* En-tête */
 header {
-	background: linear-gradient(45deg, rgb(0 200 255 / 80%), transparent);
+	background: linear-gradient(45deg, rgb(0 255 100 / 80%), transparent);
+	background-color: var(--darker2);
+	background-size: cover;
 	width: 100%;
 	position: relative;
 	top: 0;
 	z-index: 0;
 	text-align: center;
 	text-shadow: 2px 2px 0px black;
-	background-color: var(--darker2);
-	background-size: cover;
 }
 
 /* Liens en-tête */
