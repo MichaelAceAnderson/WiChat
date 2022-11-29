@@ -89,6 +89,7 @@ a {
 
 /* En-tête */
 header {
+	background: linear-gradient(45deg, rgb(0 200 255 / 80%), transparent);
 	width: 100%;
 	position: relative;
 	top: 0;
