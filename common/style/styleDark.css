@@ -19,4 +19,12 @@
 			-1px 1px 0 black,
 			1px 1px 0 black;
 	}
+
+	.outlined {
+		text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+	}
+
+	.outlined hr {
+		box-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+	}
 }

@@ -30,7 +30,7 @@
 	</style>
 	<!-- Contenu de la page -->
 	<section class="main" id="main">
-		<div class="title">
+		<div class="title outlined">
 			<h1>Page de tests</h1>
 			<hr>
 		</div>

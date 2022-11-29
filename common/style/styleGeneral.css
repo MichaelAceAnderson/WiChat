@@ -306,7 +306,6 @@ header h4 {
 	border-left: 8px solid var(--darker);
 	display: block;
 	background: rgb(150 0 0 / 80%);
-	text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
 }
 
 /* Informations de bas de page */

@@ -5,7 +5,7 @@
 	<body>
 		<META http-equiv="refresh" content="5; URL=/">
 		<?php header("Refresh:5; url=/"); ?>
-			<center class="main">
+			<center class="main outlined">
 				<h1 class="response error">
 				<?php
 				echo "Erreur ".$_GET['error'].": <br>";

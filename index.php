@@ -4,12 +4,12 @@
 ?>
 	<!-- Contenu de la page -->
 	<section class="main" id="main">
-		<div class="title">
+		<div class="title outlined">
 			<h1>Qu'est-ce que WebIntraChat ?</h1>
 			<hr>
 		</div>
 		<p>Paragraphe d'introduction</p>
-		<div class="content">
+		<div class="content outlined">
 			Futur Chat à venir
 		</div>
 	</section>

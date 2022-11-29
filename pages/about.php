@@ -21,13 +21,13 @@
 	?>
 	
 	<section class="main" id="main">
-		<div class="title">
+		<div class="title outlined">
 			<h1>À propos</h1>
 			<hr>
 		</div>
 		
 		<div class="content">
-			<p>
+			<p class="outlined">
 				Ce site a été réalisé entièrement avec HTML5, CSS3, JavaScript ES 2020. Sans Framework. À la mano. Et ça c'est la classe.
 			</p>
 			<img src="https://i.kym-cdn.com/entries/icons/original/000/028/021/work.jpg"/>
