@@ -37,6 +37,11 @@ Chrome CSS prefix: -webkit
 	outline: none;
 }
 
+/* Navigation par tabulation */
+*:focus-visible {
+  box-shadow: 0 0 2px 2px gray;
+}
+
 html {
 	/* Déplacement plus fluide de la page */
 	scroll-behavior: smooth;
