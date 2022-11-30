@@ -9,6 +9,6 @@ function updatePage() {
 			document.getElementById("resultat").innerHTML = this.responseText;
 		}
 	};
-	xmlhttp.open("GET", "request.php?display", true);
+	xmlhttp.open("GET", "/pages/utils/request.php?display", true);
 	xmlhttp.send();
 }
