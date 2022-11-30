@@ -32,7 +32,7 @@
 			</p>
 			<img src="https://i.kym-cdn.com/entries/icons/original/000/028/021/work.jpg"/>
 
-			<form action="#" method="post">
+			<form action="#" method="post" class="contact">
 				<h1>Envoyer un message</h1>
 				<?php
 					if(isset($_POST["submit"]))
