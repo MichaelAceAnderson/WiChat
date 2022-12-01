@@ -17,12 +17,21 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/common/includes/header.php');
 			}
 		?>
 		<div class="title outlined">
-			<h1>Qu'est-ce que WiChat ?</h1>
+		<h1>Bienvenue dans WiChat !</h1>
 			<hr>
 		</div>
-		<div class="content outlined" id="resultat">
-			Chargement du tchat... <img src="https://thumbs.gfycat.com/SpryNegligibleLeafcutterant-size_restricted.gif" height="30" style="vertical-align: middle;">
+	<div class="content outlined">
+		<div class="">
+			<div id="chatBox">
+				Chargement du tchat...
+				<img src="/common/img/loading.gif" height="30" style="vertical-align: middle;">
 		</div>
+			<form type="POST" action="#">
+				<input type="text" class="msg-input">
+			</form>
+		</div>
+	</div>
+
 	</section>
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'] . '/common/includes/footer.php');

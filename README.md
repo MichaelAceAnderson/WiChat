@@ -7,16 +7,7 @@ Cadre de lecture/envoi de messages
 
 ## Fonctionnalités
 
-Affichage/post en live de la base de données:  
-Ajax:  
-https://www.w3schools.com/php/php_ajax_database.asp  
-https://stackoverflow.com/questions/8412505/send-data-from-javascript-to-a-mysql-database  
-https://www.tutorialrepublic.com/php-tutorial/php-mysql-ajax-live-search.php
-
-Axios  :
-```
-?
-```
+Envoi de message
 
 ## Sécurité & Technique
 
@@ -25,6 +16,8 @@ Fichier .htaccess (Optionnel)
 Mapping URL (Optionnel)
 
 ## Style
+
+/!\ Styliser les messages envoyés/reçus du tableau
 
 Chargement de la feuille de style selon le thème (sombre/clair/...) (Optionnel)
 

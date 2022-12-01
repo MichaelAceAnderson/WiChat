@@ -8,32 +8,32 @@ Chrome CSS prefix: -webkit
 
 /* Default element/Background colors */
 :root {
-	--textcolor: white;
-	--themecolor: rgb(23 24 25);
-	--darker: rgb(0, 0, 0, 0.2);
-	--darker2: rgb(0, 0, 0, 0.4);
-	--lighter: rgb(255, 255, 255, 0.1);
-	--lighter2: rgb(255, 255, 255, 0.2);
+  --textcolor: white;
+  --themecolor: rgb(23 24 25);
+  --darker: rgb(0, 0, 0, 0.2);
+  --darker2: rgb(0, 0, 0, 0.4);
+  --lighter: rgb(255, 255, 255, 0.1);
+  --lighter2: rgb(255, 255, 255, 0.2);
 }
 
 /* Propriétés générales du corps de la page */
 @font-face {
-	font-family: "Agency FB";
-	font-style: normal;
-	font-weight: 400;
-	src: local("Agency FB"), local("AgencyFB-Regular"),
-		url(/common/fonts/agencyfb.ttf) format("truetype");
+  font-family: "Agency FB";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Agency FB"), local("AgencyFB-Regular"),
+    url(/common/fonts/agencyfb.ttf) format("truetype");
 }
 
 @font-face {
-	font-family: "LCD";
-	font-style: normal;
-	font-weight: 400;
+  font-family: "LCD";
+  font-style: normal;
+  font-weight: 400;
   src: local("LCD"), url(/common/fonts/LCD.ttf) format("truetype");
 }
 
 * {
-	outline: none;
+  outline: none;
 }
 
 /* Navigation par tabulation */
@@ -42,297 +42,306 @@ Chrome CSS prefix: -webkit
 }
 
 html {
-	/* Déplacement plus fluide de la page */
-	scroll-behavior: smooth;
-	/* Antialiasing des polices */
-	-webkit-font-smoothing: antialiased;
+  /* Déplacement plus fluide de la page */
+  scroll-behavior: smooth;
+  /* Antialiasing des polices */
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Position, couleur, police et image de fond du corps */
 body {
-	padding: 0;
-	margin: 0;
-	font-family: "Agency FB", sans-serif;
-	background-color: var(--themecolor);
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	background-image: url(/common/img/circuits.jpg);
-	color: var(--textcolor);
-	min-height: 100%;
-	position: relative;
-	z-index: 0;
+  padding: 0;
+  margin: 0;
+  font-family: "Agency FB", sans-serif;
+  background-color: var(--themecolor);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url(/common/img/circuits.jpg);
+  color: var(--textcolor);
+  min-height: 100%;
+  position: relative;
+  z-index: 0;
 }
 
 /* Code destiné à styliser la barre de défilement sur les navigateurs à moteur Chromium (webkit) */
 ::-webkit-scrollbar {
-	width: 20px;
+  width: 20px;
 }
 
 ::-webkit-scrollbar-track {
-	background: var(--themecolor);
+  background: var(--themecolor);
 }
 
 ::-webkit-scrollbar-thumb {
-	background: var(--lighter);
+  background: var(--lighter);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: var(--lighter2);
+  background: var(--lighter2);
 }
 
 ::-webkit-scrollbar-thumb:active {
-	background: var(--lighter);
+  background: var(--lighter);
 }
 
 /* Styliser tous les liens */
 a {
-	text-decoration: none;
-	color: var(--textcolor);
+  text-decoration: none;
+  color: var(--textcolor);
 }
 
 /* En-tête */
 header {
-	background: linear-gradient(45deg, rgb(0 255 100 / 80%), transparent);
-	background-color: var(--darker2);
-	background-size: cover;
-	width: 100%;
-	position: relative;
-	top: 0;
-	z-index: 0;
-	text-align: center;
-	text-shadow: 2px 2px 0px black;
+  background: linear-gradient(45deg, rgb(0 255 100 / 80%), transparent);
+  background-color: var(--darker2);
+  background-size: cover;
+  width: 100%;
+  position: relative;
+  top: 0;
+  z-index: 0;
+  text-align: center;
+  text-shadow: 2px 2px 0px black;
 }
 
 /* Liens en-tête */
 header a {
-	display: inline-block;
-	padding: 20px;
-	position: relative;
-	font-size: 30px;
-	text-transform: uppercase;
-	vertical-align: middle;
-	box-sizing: border-box;
-	transition: 1s;
-	border: 2px solid transparent;
+  display: inline-block;
+  padding: 20px;
+  position: relative;
+  font-size: 30px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  box-sizing: border-box;
+  transition: 1s;
+  border: 2px solid transparent;
 }
 
 header a:hover {
-	cursor: pointer;
-	transition: 1s;
-	border: 2px solid white;
+  cursor: pointer;
+  transition: 1s;
+  border: 2px solid white;
 }
 
 header a:active {
-	background: var(--lighter2);
-	border: 2px solid gray;
-	transition: 0.1s;
+  background: var(--lighter2);
+  border: 2px solid gray;
+  transition: 0.1s;
 }
 
 /* Titre en-tête */
 header h1 {
-	font-family: "LCD";
-	margin: 0;
-	display: inline-block;
-	font-size: 80px;
-	color: white;
+  font-family: "LCD";
+  margin: 0;
+  display: inline-block;
+  font-size: 80px;
+  color: white;
 }
 
 /* Sous-titre en-tête */
 header h4 {
-	margin: 0;
+  margin: 0;
 }
 
 /* Contenu */
 .main {
-	position: relative;
-	padding: 10px 5%;
-	overflow: hidden;
-	z-index: -1;
-	width: 100%;
-	min-height: 100vh;
-	font-size: 25px;
-	background: var(--themecolor);
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	background-image: url(/common/img/bg.jpg);
-	box-sizing: border-box;
-	transition: 0.3s;
+  position: relative;
+  padding: 10px 5%;
+  overflow: hidden;
+  z-index: -1;
+  width: 100%;
+  min-height: 100vh;
+  font-size: 25px;
+  background: var(--themecolor);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url(/common/img/bg.jpg);
+  box-sizing: border-box;
+  transition: 0.3s;
 }
 
 .main iframe {
-	border: none;
-	margin: 10px;
-	width: 80%;
-	min-height: 500px;
-	display: block;
-	margin: 10px auto;
+  border: none;
+  margin: 10px;
+  width: 80%;
+  min-height: 500px;
+  display: block;
+  margin: 10px auto;
 }
 
 .main .content,
 .main .content p {
-	text-align: center;
+  text-align: center;
 }
 
 /* Paragraphes */
 .main p {
-	text-indent: 20px;
-	text-align: justify;
+  text-indent: 20px;
+  text-align: justify;
 }
 
 /* Exposants */
 .main p sup {
-	font-size: 15px;
-	color: lightblue;
+  font-size: 15px;
+  color: lightblue;
 }
 
 .main p sup:hover {
-	cursor: pointer;
-	text-decoration: underline;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 /* Titre de page */
 .main .title hr {
-	border: none;
-	height: 5px;
-	width: 75px;
-	background: var(--textcolor);
-	margin: 15px 0px;
+  border: none;
+  height: 5px;
+  width: 75px;
+  background: var(--textcolor);
+  margin: 15px 0px;
 }
 
 .main .title h1 {
-	margin: 10px auto;
-	text-align: left;
+  margin: 10px auto;
+  text-align: left;
 }
 
-/* Formulaires */
+/* Formulaire de contact */
 
 .main form.contact {
-	background: white;
-	color: black;
-	text-align: center;
-	width: 50%;
-	margin: auto;
-	box-shadow: 0px 0px 1px black;
+  background: white;
+  color: black;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  box-shadow: 0px 0px 1px black;
 }
 
 .main form.contact h1 {
-	background: black;
-	color: white;
-	padding: 15px;
+  background: black;
+  color: white;
+  padding: 15px;
 }
 
 .main form.contact input[type="text"],
 .main form.contact textarea {
-	background-color: transparent;
-	border-radius: 0;
-	border-width: 0 0 2px 0;
-	border-color: black;
-	margin: 10px auto 10px auto;
-	display: block;
-	padding: 7px;
-	width: 50%;
-	height: 20px;
-	transition: 0.2s linear;
-	color: black;
-	font-family: "Agency FB", sans-serif;
-	font-size: 18px;
-	-ms-user-select: none;
-	-webkit-user-select: none;
-	user-select: none;
+  background-color: transparent;
+  border-radius: 0;
+  border-width: 0 0 2px 0;
+  border-color: black;
+  margin: 10px auto 10px auto;
+  display: block;
+  padding: 7px;
+  width: 50%;
+  height: 20px;
+  transition: 0.2s linear;
+  color: black;
+  font-family: "Agency FB", sans-serif;
+  font-size: 18px;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .main form.contact textarea {
-	height: 200px;
+  height: 200px;
 }
 
 .main form.contact input[type="text"]:hover,
 .main form.contact textarea:hover {
-	border-color: #005aff;
-	transition: 0.2s linear;
+  border-color: #005aff;
+  transition: 0.2s linear;
 }
 
 .main form.contact input[type="text"]:focus,
 .main form.contact textarea:focus {
-	background-color: rgb(0 0 0 / 5%);
-	box-shadow: inset 0 0 2px var(--darker2);
-	transition: 0.2s linear;
+  background-color: rgb(0 0 0 / 5%);
+  box-shadow: inset 0 0 2px var(--darker2);
+  transition: 0.2s linear;
 }
 
 .main form.contact .response {
-	color: white;
-	border-left: 8px solid var(--darker);
-	margin: 10px;
-	padding: 10px;
-	display: block;
+  color: white;
+  border-left: 8px solid var(--darker);
+  margin: 10px;
+  padding: 10px;
+  display: block;
 }
 
 .main form.contact .response.error {
-	background: rgb(150 0 0 / 80%);
+  background: rgb(150 0 0 / 80%);
 }
 
 .main form.contact .response.success {
-	background: rgb(0 100 0 / 80%);
+  background: rgb(0 100 0 / 80%);
 }
 
 .main form.contact h3 {
-	margin: 0;
+  margin: 0;
 }
 
 .main form.contact button {
-	color: white;
-	background: rgb(23 24 25);
-	border: 5px solid rgb(23 24 25);
-	border-radius: 0;
-	font-size: 20px;
-	padding: 15px;
-	display: inline;
-	margin: 5px auto 5px auto;
-	transition: 0.5s;
-	font-family: "Agency FB", sans-serif;
+  color: white;
+  background: rgb(23 24 25);
+  border: 5px solid rgb(23 24 25);
+  border-radius: 0;
+  font-size: 20px;
+  padding: 15px;
+  display: inline;
+  margin: 5px auto 5px auto;
+  transition: 0.5s;
+  font-family: "Agency FB", sans-serif;
 }
 
 .main form.contact button:hover {
-	background: rgb(23 24 25);
-	border: 5px solid var(--lighter2);
-	cursor: pointer;
-	transition: 0.3s;
+  background: rgb(23 24 25);
+  border: 5px solid var(--lighter2);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .main form.contact button:active {
-	background: radial-gradient(rgb(40 40 40), rgb(23 24 25));
-	border: 5px solid var(--darker2);
+  background: radial-gradient(rgb(40 40 40), rgb(23 24 25));
+  border: 5px solid var(--darker2);
 }
 
 .error {
-	color: white;
-	border-left: 8px solid var(--darker);
-	display: block;
-	background: rgb(150 0 0 / 80%);
+  color: white;
+  border-left: 8px solid var(--darker);
+  display: block;
+  background: rgb(150 0 0 / 80%);
 }
-
+/* Formulaire d'envoi de message */
+.main form input.msg-input {
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+  visibility: hidden;
+}
+.main form input.msg-input.visible{
+  visibility: visible;
+}
 /* Informations de bas de page */
 footer {
-	position: relative;
-	color: white;
-	background: rgb(23 24 25);
-	text-shadow: 0 0 4px black;
-	bottom: 0;
-	z-index: -1;
-	width: 100%;
-	text-align: center;
-	font-size: 25px;
-	padding: 15px;
-	box-sizing: border-box;
-	box-shadow: 0 0 2px black;
+  position: relative;
+  color: white;
+  background: rgb(23 24 25);
+  text-shadow: 0 0 4px black;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  padding: 15px;
+  box-sizing: border-box;
+  box-shadow: 0 0 2px black;
 }
 
 footer a {
-	color: white;
+  color: white;
 }
 
 footer a:hover,
 footer a:focus {
-	text-decoration: underline;
+  text-decoration: underline;
 }
