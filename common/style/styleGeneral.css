@@ -29,8 +29,7 @@ Chrome CSS prefix: -webkit
 	font-family: "LCD";
 	font-style: normal;
 	font-weight: 400;
-	src: local("LCD"),
-		url(/common/fonts/LCD.ttf) format("truetype");
+  src: local("LCD"), url(/common/fonts/LCD.ttf) format("truetype");
 }
 
 * {
