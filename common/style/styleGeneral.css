@@ -34,6 +34,7 @@ Chrome CSS prefix: -webkit
 
 * {
   outline: none;
+  box-sizing: border-box;
 }
 
 /* Navigation par tabulation */
@@ -112,7 +113,6 @@ header a {
   font-size: 30px;
   text-transform: uppercase;
   vertical-align: middle;
-  box-sizing: border-box;
   transition: 1s;
   border: 2px solid transparent;
 }
@@ -157,7 +157,6 @@ header h4 {
   background-attachment: fixed;
   background-size: cover;
   background-image: url(/common/img/bg.jpg);
-  box-sizing: border-box;
   transition: 0.3s;
 }
 
@@ -170,7 +169,6 @@ header h4 {
   margin: 10px auto;
 }
 
-.main .content,
 .main .content p {
   text-align: center;
 }
@@ -311,16 +309,89 @@ header h4 {
   display: block;
   background: rgb(150 0 0 / 80%);
 }
+
 /* Formulaire d'envoi de message */
-.main form input.msg-input {
-  border-radius: 10px;
+.main input.msg-input {
+  border-radius: 0px 0px 10px 10px;
+  font-size: 15px;
+  padding: 10px;
   border: none;
   width: 100%;
   visibility: hidden;
 }
-.main form input.msg-input.visible{
+
+.main input.msg-input.visible {
   visibility: visible;
 }
+
+/* Boîte de réception */
+.main .chat-container #chatBox {
+  max-height: 75vh;
+  overflow: auto;
+  border-radius: 5px 5px 0px 0px;
+  background: rgb(35 35 35 / 70%);
+}
+
+/* Message entrant */
+.main .chat-container .msg {
+  width: fit-content;
+  padding: 10px;
+  border-radius: 5px;
+  background: gray;
+  color: white;
+}
+
+.main .chat-container .msg .chat-id {
+  display: none;
+}
+
+.main .chat-container .msg .timestamp {
+  font-size: 15px;
+  padding: 0 10px;
+  color: lightgray;
+}
+
+.main .chat-container .msg .username {
+  font-size: 15px;
+  padding: 1px 10px;
+  color: lightgray;
+  background: rgb(0 0 0 / 25%);
+  box-shadow: -1px 0px 0px rgb(255 255 255 / 60%);
+}
+
+.main .chat-container .msg .content {
+  padding: 7px 0px;
+}
+
+.main .chat-container .msg.in {
+  margin: 10px auto 10px 5px;
+  text-align: left;
+  background: blue;
+}
+
+.main .chat-container .msg.in .username {
+  box-shadow: -1px 0px 0px rgb(255 255 255 / 60%);
+}
+
+.main .chat-container .msg.in .timestamp {
+  text-align: right;
+}
+
+.main .chat-container .msg.out {
+  margin: 10px 5px 10px auto;
+  text-align: right;
+  background: dodgerblue;
+}
+
+.main .chat-container .msg.out .username {
+  box-shadow: 1px 0px 0px rgb(255 255 255 / 60%);
+
+}
+
+.main .chat-container .msg.out .timestamp {
+  text-align: right;
+}
+
 /* Informations de bas de page */
 footer {
   position: relative;
@@ -333,7 +404,6 @@ footer {
   text-align: center;
   font-size: 25px;
   padding: 15px;
-  box-sizing: border-box;
   box-shadow: 0 0 2px black;
 }
 

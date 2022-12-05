@@ -1,19 +1,23 @@
 __[TOC]__
 # À faire (classés par catégorie puis par priorité)
 
-## Contenu
+## Vues
 
-Cadre de lecture/envoi de messages
+Rajouter champ & nom d'utilisateur
+Séparer design messages entrants/sortants
 
-## Fonctionnalités
+## Contrôleur
 
-Envoi de message
+Vérifier l'arrivée d'un nouveau message, sinon ne pas mettre à jour le contenu et rabaisser le scroll de chatBox
+## Modèle
+
+✅ Rien à faire pour le moment !
 
 ## Sécurité & Technique
 
 Fichier .htaccess (Optionnel)
 
-Mapping URL (Optionnel)
+Mapping URL (Optionnel) [Redirection htaccess ?]
 
 ## Style
 

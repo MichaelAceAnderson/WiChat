@@ -21,54 +21,47 @@ if (isset($_GET['display'])) {
 		FROM messages JOIN users 
 		ON messages.authorId=users.id 
 		WHERE chatId = '" . $chatId . "'";
+
 	// Exécution de la requête
 	$result = $dbConnection->query($request);
 
 	if ($result) {
 		// Si la requête renvoie bien un résultat quel qu'il soit
-		// Correction du style de base du tableau
-		echo "
-		<style>
-			table {
-				width: 100%;
-				border-collapse: collapse;
-			}
-
-			table,
-			td,
-			th {
-				border: 1px solid black;
-				padding: 5px;
-			}
-
-			th {
-				text-align: left;
-			}
-		</style>";
-
 		//Affichage des résultats
-		echo "<table>
-		<tr>
-			<th>ID du Tchat</th>
-			<th>Auteur</th>
-			<th>Message</th>
-			<th>Date du message</th>
-		</tr>";
 		while ($row = $result->fetch_array()) {
-			echo "<tr>";
-			echo "<td>" . $row['chatId'] . "</td>";
-			echo "<td>" . $row['username'] . "</td>";
-			echo "<td>" . $row['message'] . "</td>";
-			echo "<td>" . $row['timestamp'] . "</td>";
-			echo "</tr>";
+			echo '<div class="msg in">
+			<div class="chat-id">' . $row["chatId"] . '</div>
+			<div class="username">' . $row["username"] . '</div>
+			<div class="content">' . $row["message"] . '</div>
+			<div class="timestamp">' . $row["timestamp"] . '</div>
+			</div>';
 		}
-		echo "</table>";
 	}
 	//Fermeture de la base de données
 	$dbConnection->close();
 }
 
-//Envoi d'un message
+// Envoi d'un message
 if (isset($_GET['send'])) {
-	echo "Envoi du message: " . $_GET['send'];
+	// Tenter d'ouvrir la connexion à la base de données
+	try {
+		//Connexion à l'utilisateur MySQL
+		$dbConnection = new mysqli('localhost', 'root', '', 'WiChat');
+	} catch (Exception $e) {
+		//Si la connexion a échoué et que $dbConnection a lancé (throw) une erreur
+		die('Impossible de joindre le serveur de tchat: ' . $e->getMessage());
+		exit();
+	}
+	// Décoder les données envoyées par axios.post
+	$_POST = json_decode(file_get_contents("php://input"), true);
+	if (isset($_POST['msg'])) {
+
+		// Exécution de la requête d'insertion
+		$result = $dbConnection->query("
+		INSERT INTO messages(chatId, authorId, message)
+		VALUES (0, " . $_POST['userId'] . ", '" . $_POST['msg'] . "') 
+		");
+	}
+	//Fermeture de la connexion à la base de données
+	$dbConnection->close();
 }
