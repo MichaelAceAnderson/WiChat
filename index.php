@@ -12,8 +12,6 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/common/includes/header.php');
 					echo '<script src="https://unpkg.com/axios/dist/axios.min.js"></script>';
 				}
 				echo '<script src="/common/js/axiosUpdate.js"></script>';
-	} elseif (file_exists($_SERVER['DOCUMENT_ROOT'] . "/common/js/ajaxUpdate.js")) {
-					echo '<script src="/common/js/ajaxUpdate.js"></script>';
 			}
 		?>
 		<div class="title outlined">
