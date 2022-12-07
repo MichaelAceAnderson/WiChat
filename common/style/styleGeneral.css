@@ -108,7 +108,7 @@ header {
 /* Liens en-tête */
 header a {
   display: inline-block;
-  padding: 20px;
+  padding: 5px 20px;
   position: relative;
   font-size: 30px;
   text-transform: uppercase;
@@ -312,52 +312,48 @@ header h4 {
   background: rgb(150 0 0 / 80%);
   text-align: center;
 }
-.error p{
+
+.error p {
   display: inline;
 }
 
-/* Formulaire d'envoi de message */
-.main input.msg-input {
-  border-radius: 0px 0px 10px 10px;
-  font-size: 15px;
-  padding: 10px;
-  border: none;
-  width: 100%;
-  visibility: hidden;
-}
-
-.main input.msg-input.visible {
-  visibility: visible;
+/* Conteneur du tchat */
+.main .chat-container {
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 /* Boîte de réception */
 .main .chat-container #chatBox {
   max-height: 75vh;
   overflow: auto;
-  border-radius: 5px 5px 0px 0px;
   background: rgb(35 35 35 / 70%);
 }
 
-/* Message entrant */
+/* Messages */
 .main .chat-container .msg {
   width: fit-content;
+  max-width: 45%;
   padding: 10px;
   border-radius: 5px;
   background: gray;
   color: white;
 }
 
-.main .chat-container .msg .chat-id {
+/* Id du message (caché, l'élément ne sert qu'à récupérer sa valeur) */
+.main .chat-container .msg .author-id {
   display: none;
 }
 
+/* Date & heure */
 .main .chat-container .msg .timestamp {
   font-size: 15px;
   padding: 0 10px;
   color: lightgray;
 }
 
-.main .chat-container .msg .username {
+/* Nom d'utilisateur */
+.main .chat-container .msg .nickname {
   font-size: 15px;
   padding: 1px 10px;
   color: lightgray;
@@ -365,37 +361,116 @@ header h4 {
   box-shadow: -1px 0px 0px rgb(255 255 255 / 60%);
 }
 
+/* Contenu du message */
 .main .chat-container .msg .content {
   padding: 7px 0px;
 }
 
+/* Message entrant */
 .main .chat-container .msg.in {
   margin: 10px auto 10px 5px;
   text-align: left;
   background: blue;
 }
 
-.main .chat-container .msg.in .username {
+/* Nom d'utilisateur de l'auteur du message entrant */
+.main .chat-container .msg.in .nickname {
   box-shadow: -1px 0px 0px rgb(255 255 255 / 60%);
 }
 
+/* Date d'envoi du message entrant */
 .main .chat-container .msg.in .timestamp {
   text-align: right;
 }
 
+/* Date & heure d'envoi du message sortant */
 .main .chat-container .msg.out {
   margin: 10px 5px 10px auto;
   text-align: right;
   background: dodgerblue;
 }
 
-.main .chat-container .msg.out .username {
+/* Nom d'utilisateur de l'auteur du message sortant */
+.main .chat-container .msg.out .nickname {
   box-shadow: 1px 0px 0px rgb(255 255 255 / 60%);
-
 }
 
+/* Date & heure d'envoi du message sortant */
 .main .chat-container .msg.out .timestamp {
   text-align: right;
+}
+
+/* Conteneur de champs de saisie */
+.main .chat-container .inputs {
+  font-size: 0px;
+  height: 40px;
+  position: relative;
+  border-radius: 0px 0px 10px 10px;
+  overflow: hidden;
+  display: none;
+}
+
+/* Attribut de visibilité des champs */
+.main .chat-container .inputs.visible {
+  display: block;
+}
+
+/* Champs de saisie */
+.main .chat-container .inputs input {
+  display: inline-block;
+  height: 100%;
+}
+
+/* Champs de saisie textuels */
+.main .chat-container .inputs input[type="text"] {
+  font-size: 15px;
+  padding: 0px 55px 0px 5px;
+  border: none;
+  transition: 0.3s;
+}
+
+/* Survol des champs de saisie textuels */
+.main .chat-container .inputs input[type="text"]:focus {
+  transition: 0.3s;
+  box-shadow: inset -1px -1px 0px 1px dodgerblue;
+}
+
+/* Clic sur les champs de saisie textuels */
+.main .chat-container .inputs input[type="text"]:hover {
+  transition: 0.3s;
+}
+
+/* Champ de saisie nom d'utilisateur */
+.main .chat-container .inputs input[type="text"].username {
+  width: 30%;
+}
+
+/* Champ de saisie message */
+.main .chat-container .inputs input[type="text"].send-msg {
+  width: 70%;
+}
+
+/* Boutons */
+.main .chat-container .inputs input[type="submit"] {
+  margin-left: -50px;
+  position: absolute;
+  width: 50px;
+  font-weight: bolder;
+  border: none;
+  background: dodgerblue;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Boutons */
+.main .chat-container .inputs input[type="submit"][disabled] {
+  background: gray;
+}
+
+.main .chat-container .inputs input[disabled] {
+  color: lightgray;
+  cursor: not-allowed;
 }
 
 /* Informations de bas de page */

@@ -2,16 +2,17 @@ __[TOC]__
 # À faire (classés par catégorie puis par priorité)
 
 ## Vues
-
-Rajouter champ & nom d'utilisateur
-Séparer design messages entrants/sortants
+Réparer le scroll ou ne mettre la page à jour qu'à l'envoi/la réception d'un message
 
 ## Contrôleur
 
+Passer la réponse de request.php en json et prendre en charge depuis axios
 Vérifier l'arrivée d'un nouveau message, sinon ne pas mettre à jour le contenu et rabaisser le scroll de chatBox
+
 ## Modèle
 
-✅ Rien à faire pour le moment !
+Requêtes préparées
+Passer sous PostgreSQL
 
 ## Sécurité & Technique
 
@@ -20,8 +21,6 @@ Fichier .htaccess (Optionnel)
 Mapping URL (Optionnel) [Redirection htaccess ?]
 
 ## Style
-
-/!\ Styliser les messages envoyés/reçus du tableau
 
 Chargement de la feuille de style selon le thème (sombre/clair/...) (Optionnel)
 
@@ -38,17 +37,16 @@ Création de la base de données:
 ```
 CREATE DATABASE WiChat
 ```
-Création de la table utilisateurs:  
+Création de la table utilisateurs (MySQL):  
 ```
 CREATE table users(
 	id int AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-	username VARCHAR(64) NOT NULL
+	nickname VARCHAR(64) NOT NULL UNIQUE
 )
 ```
 Création de la table messages:  
 ```
 CREATE table messages(
-	chatId int NOT NULL, 
 	authorId int NOT NULL, 
 	message TEXT NOT NULL, 
 	FOREIGN KEY (authorId) REFERENCES users(id)
@@ -57,7 +55,7 @@ CREATE table messages(
 ### Création d'un utilisateur
 Exemple de création d'un utilisateur (s'il n'existe pas déjà)
 ```
-INSERT INTO messages(chatId, authorId, message)
+INSERT INTO users(userId, username)
 ```
 
 ### Création d'un message

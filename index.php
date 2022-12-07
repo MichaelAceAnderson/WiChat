@@ -15,7 +15,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/common/includes/header.php');
 	}
 	?>
 	<div class="title outlined">
-		<h1>Bienvenue dans WiChat !</h1>
+		<h1>Bienvenue dans WiChat ! Entrez un pseudo et commencez à tchatter !</h1>
 		<hr>
 	</div>
 	<div class="content">
@@ -26,7 +26,10 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/common/includes/header.php');
 					<img src="/common/img/loading.gif" height="30" style="vertical-align: middle;">
 				</p>
 			</div>
-			<input type="text" class="msg-input" placeholder="Entrez un message...">
+			<div class="inputs">
+				<input type="text" class="username" placeholder="Entrez un nom d'utilisateur..." /><input class="outlined" type="submit" name="setName" value="✓" alt="Valider" />
+				<input type="text" class="send-msg" placeholder="Entrez un message..." / disabled><input class="outlined" type="submit" name="sendMsg" value="⮞" alt="Envoyer" disabled />
+			</div>
 		</div>
 	</div>
 </section>
