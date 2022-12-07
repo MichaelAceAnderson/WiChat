@@ -1,4 +1,3 @@
-__[TOC]__
 # À faire (classés par catégorie puis par priorité)
 
 ## Vues
@@ -11,23 +10,19 @@ Vérifier l'arrivée d'un nouveau message, sinon ne pas mettre à jour le conten
 
 ## Modèle
 
-Requêtes préparées
 Passer sous PostgreSQL
+Requêtes préparées
 
 ## Sécurité & Technique
 
 Fichier .htaccess (Optionnel)
-
 Mapping URL (Optionnel) [Redirection htaccess ?]
 
 ## Style
 
 Chargement de la feuille de style selon le thème (sombre/clair/...) (Optionnel)
-
 Feuille de style responsive (mobile, ...) (Optionnel)
-
 Calcul de couleurs pour définition de thèmes personnalisés (Optionnel)
-
 Feuille de style d'impression (Optionnel)
 
 # Mémos & Infos Dev
