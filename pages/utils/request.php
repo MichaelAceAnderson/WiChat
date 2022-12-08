@@ -3,7 +3,7 @@
 if (isset($_GET['display'])) {
 	try {
 		//Connexion à l'utilisateur MySQL
-		$dbConnection = new mysqli('localhost', 'root', '', 'WiChat');
+		$dbConnection = new mysqli('localhost', 'reader', 'WClr4--', 'WiChat');
 	} catch (Exception $e) {
 		//Si la connexion a échoué et que $dbConnection a lancé (throw) une erreur
 		die('Impossible de joindre le serveur de tchat: ' . $e->getMessage());
@@ -34,7 +34,7 @@ if (isset($_GET['display'])) {
 		}
 	} catch (Exception $e) {
 		//Si la connexion a échoué et que $dbConnection a lancé (throw) une erreur
-		die('Impossible de joindre le serveur de tchat: ' . $e->getMessage());
+		die('Impossible d\'afficher les messages du tchat: ' . $e->getMessage());
 		exit();
 	}
 
@@ -47,7 +47,7 @@ if (isset($_GET['setUser'])) {
 	// Tenter d'ouvrir la connexion à la base de données
 	try {
 		//Connexion à l'utilisateur MySQL
-		$dbConnection = new mysqli('localhost', 'root', '', 'WiChat');
+		$dbConnection = new mysqli('localhost', 'editor', 'WClrw6--', 'WiChat');
 	} catch (Exception $e) {
 		//Si la connexion a échoué et que $dbConnection a lancé (throw) une erreur
 		die('Impossible de joindre le serveur de tchat: ' . $e->getMessage());
@@ -103,7 +103,7 @@ if (isset($_GET['setUser'])) {
 				}
 			}
 		} catch (Exception $e) {
-			//Si la connexion a échoué et que $dbConnection a lancé (throw) une erreur
+			//Si la requête a échoué et a lancé (throw) une erreur
 			die('Impossible de joindre le serveur de tchat: ' . $e->getMessage());
 			exit();
 		}
@@ -121,7 +121,7 @@ if (isset($_GET['send'])) {
 	// Tenter d'ouvrir la connexion à la base de données
 	try {
 		//Connexion à l'utilisateur MySQL
-		$dbConnection = new mysqli('localhost', 'root', '', 'WiChat');
+		$dbConnection = new mysqli('localhost', 'writer', 'WClw2--', 'WiChat');
 	} catch (Exception $e) {
 		//Si la connexion a échoué et que $dbConnection a lancé (throw) une erreur
 		die('Impossible de joindre le serveur de tchat: ' . $e->getMessage());

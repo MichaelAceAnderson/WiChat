@@ -22,6 +22,14 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+-- Utilisateurs
+CREATE USER 'reader'@'localhost' IDENTIFIED BY 'WClr4--';
+CREATE USER 'writer'@'localhost' IDENTIFIED BY 'WClw2--';
+CREATE USER 'editor'@'localhost' IDENTIFIED BY 'WClrw6--';
+-- Privilèges
+GRANT SELECT ON WiChat.* TO 'reader'@'localhost';
+GRANT SELECT, INSERT ON WiChat.* TO 'editor'@'localhost';
+GRANT INSERT ON WiChat.* TO 'writer'@'localhost';
 
 --
 -- Structure de la table `messages`

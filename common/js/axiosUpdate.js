@@ -113,6 +113,10 @@ function setUsername(input) {
 				document.getElementsByName("sendMsg")[0].disabled = false;
 				document.getElementsByClassName("send-msg")[0].disabled = false;
 			}
+			else {
+				// Envoyer une erreur s'il y a lieu
+				throw new Error(response.data);
+			}
 		})
 		.catch((error) => {
 			console.error(error);

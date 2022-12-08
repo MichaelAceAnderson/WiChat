@@ -2,6 +2,7 @@
 
 ## Vues
 Réparer le scroll ou ne mettre la page à jour qu'à l'envoi/la réception d'un message
+Ajouter système de notifications si le contrôleur indique une maj du contenu et que la scrollbar n'est pas en bas
 
 ## Contrôleur
 
@@ -27,35 +28,9 @@ Feuille de style d'impression (Optionnel)
 
 # Mémos & Infos Dev
 ## Base de données
-### Création des tables
-Création de la base de données:  
+
+### Création de la base de données
 ```
 CREATE DATABASE WiChat
 ```
-Création de la table utilisateurs (MySQL):  
-```
-CREATE table users(
-	id int AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-	nickname VARCHAR(64) NOT NULL UNIQUE
-)
-```
-Création de la table messages:  
-```
-CREATE table messages(
-	authorId int NOT NULL, 
-	message TEXT NOT NULL, 
-	FOREIGN KEY (authorId) REFERENCES users(id)
-)
-```
-### Création d'un utilisateur
-Exemple de création d'un utilisateur (s'il n'existe pas déjà)
-```
-INSERT INTO users(userId, username)
-```
-
-### Création d'un message
-Exemple de création d'un message (si l'utilisateur existe): 
-```
-INSERT INTO messages(chatId, authorId, message)
-VALUES(1, 1, "Message")
-```
+Puis éxécuter WiChat.sql
