@@ -94,7 +94,7 @@ a {
 
 /* En-tête */
 header {
-  background: linear-gradient(45deg, rgb(0 255 100 / 80%), transparent);
+  background: linear-gradient(45deg, rgb(0 145 55 / 80%), transparent);
   background-color: var(--darker2);
   background-size: cover;
   width: 100%;
@@ -112,7 +112,6 @@ header a {
   position: relative;
   font-size: 30px;
   text-transform: uppercase;
-  vertical-align: middle;
   transition: 1s;
   border: 2px solid transparent;
 }
@@ -330,14 +329,20 @@ header h4 {
   background: rgb(35 35 35 / 70%);
 }
 
+.main .chat-container #chatBox img {
+  vertical-align: middle;
+}
+
 /* Messages */
 .main .chat-container .msg {
+  width: -moz-fit-content;
   width: fit-content;
   max-width: 45%;
   padding: 10px;
   border-radius: 5px;
   background: gray;
   color: white;
+  text-shadow: 0 0 2px black;
 }
 
 /* Id du message (caché, l'élément ne sert qu'à récupérer sa valeur) */
@@ -349,14 +354,14 @@ header h4 {
 .main .chat-container .msg .timestamp {
   font-size: 15px;
   padding: 0 10px;
-  color: lightgray;
+  color: white;
 }
 
 /* Nom d'utilisateur */
 .main .chat-container .msg .nickname {
   font-size: 15px;
   padding: 1px 10px;
-  color: lightgray;
+  color: white;
   background: rgb(0 0 0 / 25%);
   box-shadow: -1px 0px 0px rgb(255 255 255 / 60%);
 }
@@ -370,7 +375,7 @@ header h4 {
 .main .chat-container .msg.in {
   margin: 10px auto 10px 5px;
   text-align: left;
-  background: blue;
+  background: dodgerblue;
 }
 
 /* Nom d'utilisateur de l'auteur du message entrant */
@@ -387,7 +392,7 @@ header h4 {
 .main .chat-container .msg.out {
   margin: 10px 5px 10px auto;
   text-align: right;
-  background: dodgerblue;
+  background: steelblue;
 }
 
 /* Nom d'utilisateur de l'auteur du message sortant */
@@ -457,7 +462,7 @@ header h4 {
   width: 50px;
   font-weight: bolder;
   border: none;
-  background: dodgerblue;
+  background: steelblue;
   color: white;
   font-size: 18px;
   cursor: pointer;

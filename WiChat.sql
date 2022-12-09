@@ -23,13 +23,13 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 -- Utilisateurs
-CREATE USER 'reader'@'localhost' IDENTIFIED BY 'WClr4--';
-CREATE USER 'writer'@'localhost' IDENTIFIED BY 'WClw2--';
-CREATE USER 'editor'@'localhost' IDENTIFIED BY 'WClrw6--';
+CREATE USER 'reader'@'localhost' IDENTIFIED BY 'WClr4--'; -- Lecture
+CREATE USER 'writer'@'localhost' IDENTIFIED BY 'WClw2--'; -- Écriture
+CREATE USER 'editor'@'localhost' IDENTIFIED BY 'WClrw6--'; -- Modification
 -- Privilèges
 GRANT SELECT ON WiChat.* TO 'reader'@'localhost';
-GRANT SELECT, INSERT ON WiChat.* TO 'editor'@'localhost';
 GRANT INSERT ON WiChat.* TO 'writer'@'localhost';
+GRANT SELECT, INSERT ON WiChat.* TO 'editor'@'localhost';
 
 --
 -- Structure de la table `messages`
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `timestamp` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `authorId` (`authorId`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `messages`

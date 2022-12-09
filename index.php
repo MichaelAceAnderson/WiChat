@@ -23,7 +23,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/common/includes/header.php');
 			<div id="chatBox">
 				<p>
 					Chargement du tchat...
-					<img src="/common/img/loading.gif" height="30" style="vertical-align: middle;">
+					<img src="/common/img/loading.gif" height="30" alt="Chargement...">
 				</p>
 			</div>
 			<div class="inputs">
