@@ -34,7 +34,8 @@ Feuille de style d'impression (Optionnel)
 # Mémos & Infos Dev
 
 ## Base de données
-
+### Accès superuser
+postgres:PG770rwx
 ### Création de la base de données
 
 ```
