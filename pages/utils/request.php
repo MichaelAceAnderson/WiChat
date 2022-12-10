@@ -2,8 +2,8 @@
 //Affichage de messages
 if (isset($_GET['display'])) {
 	try {
-		//Connexion à l'utilisateur MySQL
-		$dbConnection = new mysqli('localhost', 'reader', 'WClr4--', 'WiChat');
+		//Connexion à l'utilisateur 
+		$dbConnection = pg_connect("host=localhost port=5432 dbname=WiChat user=reader password=WClr4--");
 	} catch (Exception $e) {
 		//Si la connexion a échoué et que $dbConnection a lancé (throw) une erreur
 		die('Impossible de joindre le serveur de tchat: ' . $e->getMessage());
@@ -12,20 +12,21 @@ if (isset($_GET['display'])) {
 
 	try {
 		// Exécution de la requête de récupération des messages
-		$result = $dbConnection->query(
-			"SELECT messages.authorId, users.nickname, messages.message, messages.timestamp 
-			FROM messages JOIN users 
-			ON messages.authorId=users.id
-			ORDER BY messages.timestamp"
+		$result = pg_query(
+			$dbConnection,
+			"SELECT wichat.messages.authorid, wichat.users.nickname, wichat.messages.message, messages.timestamp 
+			FROM wichat.messages JOIN wichat.users 
+			ON wichat.messages.authorid=users.id
+			ORDER BY wichat.messages.timestamp"
 		);
 		if (!$result) {
 			throw new Exception("La boîte de réception ne répond pas correctement");
 		} else {
 			// Si la requête renvoie bien un résultat quel qu'il soit
 			//Affichage des résultats
-			while ($row = $result->fetch_array()) {
+			while ($row = pg_fetch_array($result)) {
 				echo '<div class="msg">
-				<div class="author-id">' . $row["authorId"] . '</div>
+				<div class="author-id">' . $row["authorid"] . '</div>
 				<div class="nickname">' . $row["nickname"] . '</div>
 				<div class="content">' . $row["message"] . '</div>
 				<div class="timestamp">' . $row["timestamp"] . '</div>
@@ -39,15 +40,15 @@ if (isset($_GET['display'])) {
 	}
 
 	//Fermeture de la base de données
-	$dbConnection->close();
+	pg_close($dbConnection);
 }
 
 // Enregistrer/Connecter un utilisateur
 if (isset($_GET['setUser'])) {
 	// Tenter d'ouvrir la connexion à la base de données
 	try {
-		//Connexion à l'utilisateur MySQL
-		$dbConnection = new mysqli('localhost', 'editor', 'WClrw6--', 'WiChat');
+		//Connexion à l'utilisateur PostgreSQL
+		$dbConnection = pg_connect("host=localhost port=5432 dbname=WiChat user=editor password=WClrw6--");
 	} catch (Exception $e) {
 		//Si la connexion a échoué et que $dbConnection a lancé (throw) une erreur
 		die('Impossible de joindre le serveur de tchat: ' . $e->getMessage());
@@ -59,33 +60,36 @@ if (isset($_GET['setUser'])) {
 	if (isset($_POST['username']) && $_POST['username'] != "") {
 		try {
 			// Exécution de la requête de récupération d'id/username
-			$result = $dbConnection->query(
-				"SELECT users.id 
-				FROM users 
+			$result = pg_query(
+				$dbConnection,
+				"SELECT wichat.users.id 
+				FROM wichat.users 
 				WHERE LOWER(nickname) = LOWER('" . $_POST['username'] . "')"
 			);
 			if (!$result) {
 				throw new Exception("La liste des utilisateurs n'a pas pu être récupérée");
-			} elseif ($result->num_rows == 0) {
+			} elseif (pg_num_rows($result) == 0) {
 				try {
 					// Créer l'utilisateur
-					$dbConnection->query("
-						INSERT INTO users(nickname) VALUES('" . $_POST['username'] . "')
-					");
+					$result = pg_query(
+						$dbConnection,
+						"INSERT INTO wichat.users(nickname) VALUES('" . $_POST['username'] . "')"
+					);
 					if (!$result) {
 						throw new Exception("La création d'un nouvel utilisateur a échoué");
 					} else {
 						//Récupérer l'id de l'utilisateur inséré
-						$result = $dbConnection->query(
-							"SELECT users.id 
-							FROM users 
+						$result = pg_query(
+							$dbConnection,
+							"SELECT wichat.users.id 
+							FROM wichat.users 
 							WHERE LOWER(nickname) = LOWER('" . $_POST['username'] . "')"
 						);
 						if (!$result) {
 							throw new Exception("Impossible de récupérer l'id de l'utilisateur");
 						} else {
 							// Afficher l'id récupéré pour qu'il soit utilisé lors de l'envoi de messages ultérieurs
-							while ($row = $result->fetch_array()) {
+							while ($row = pg_fetch_array($result)) {
 								echo $row['id'];
 							}
 						}
@@ -98,7 +102,7 @@ if (isset($_GET['setUser'])) {
 			} else {
 				// Si l'utilisateur existe
 				// Afficher l'id récupéré pour qu'il soit utilisé lors de l'envoi de messages ultérieurs
-				while ($row = $result->fetch_array()) {
+				while ($row = pg_fetch_array($result)) {
 					echo $row['id'];
 				}
 			}
@@ -108,7 +112,7 @@ if (isset($_GET['setUser'])) {
 			exit();
 		}
 		//Fermeture de la connexion à la base de données
-		$dbConnection->close();
+		pg_close($dbConnection);
 	} else {
 		// Si aucun nom d'utilisateur n'a été spécifié
 		echo "Impossible de vous connecter: Vous devez saisir un nom d'utilisateur !";
@@ -121,7 +125,7 @@ if (isset($_GET['send'])) {
 	// Tenter d'ouvrir la connexion à la base de données
 	try {
 		//Connexion à l'utilisateur MySQL
-		$dbConnection = new mysqli('localhost', 'writer', 'WClw2--', 'WiChat');
+		$dbConnection = pg_connect("host=localhost port=5432 dbname=WiChat user=writer password=WClw2--");
 	} catch (Exception $e) {
 		//Si la connexion a échoué et que $dbConnection a lancé (throw) une erreur
 		die('Impossible de joindre le serveur de tchat: ' . $e->getMessage());
@@ -132,10 +136,11 @@ if (isset($_GET['send'])) {
 	if (isset($_POST['msg']) && $_POST['msg'] != "") {
 		try {
 			// Exécution de la requête d'insertion
-			$result = $dbConnection->query("
-			INSERT INTO messages(authorId, message)
-			VALUES (" . $_POST['userId'] . ", '" . $_POST['msg'] . "') 
-			");
+			$result = pg_query(
+				$dbConnection,
+				"INSERT INTO wichat.messages(authorid, message)
+				VALUES (" . $_POST['userId'] . ", '" . $_POST['msg'] . "')"
+			);
 			if (!$result) {
 				throw new Exception("L'insertion du message sur le serveur a échoué");
 			}
@@ -145,7 +150,7 @@ if (isset($_GET['send'])) {
 			exit();
 		}
 		//Fermeture de la connexion à la base de données
-		$dbConnection->close();
+		pg_close($dbConnection);
 	} else {
 		echo "Impossible: Vous devez saisir un message !";
 	}
