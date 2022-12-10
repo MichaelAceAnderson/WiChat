@@ -60,25 +60,30 @@ function updatePage() {
 	axios
 		.get("/model/request.php?display")
 		.then((response) => {
-			//Définir les messages d'erreur potentiels dont il faut vérifier la présence dans la réponse
-			let errorMsg = ['Impossible', 'Warning', 'Error'];
-			if (!errorMsg.some(eMsg => response.data.toLowerCase().includes(eMsg.toLowerCase()))) {
-				// Si la réponse ne comprend pas un message "impossible"
-				chatBox.innerHTML = response.data;
-				msgList = chatBox.getElementsByClassName("msg");
-				for (let i = 0; i < msgList.length; i++) {
-					if (msgList[i].getElementsByClassName("author-id")[0].textContent == thisUserId) {
-						msgList[i].classList.add("out");
+			if (response.data.error) {
+				// Envoyer une erreur s'il y a lieu
+				throw new Error(response.data.error);
+			} else {
+				chatBox.innerHTML = ``;
+				for (let i = 0; i < response.data.length; i++) {
+					let msg = chatBox.appendChild(document.createElement('div'));
+					msg.classList.add("msg");
+					if (response.data[i].authorid == thisUserId) {
+						// Si l'utilisateur est celui connecté
+						msg.classList.add("out");
 					}
 					else {
-						msgList[i].classList.add("in");
+						// Si l'utilisateur est distant
+						msg.classList.add("in")
 					}
+					msg.innerHTML = '<div class="author-id"> ' + response.data[i].authorid + '</div>' +
+						'<div class="nickname">' + response.data[i].nickname + '</div>' +
+						'<div class="content">' + response.data[i].message + '</div>' +
+						'<div class="timestamp">' + response.data[i].timestamp + '</div>';
 				}
+
 				// Rendre visible le champ de saisie de message
 				document.getElementsByClassName("inputs")[0].classList.add("visible");
-			} else {
-				// Envoyer une erreur s'il y a lieu
-				throw new Error(response.data);
 			}
 		})
 		.catch((error) => {
@@ -87,13 +92,12 @@ function updatePage() {
 			// Cacher la saisie de message
 			document.getElementsByClassName("inputs")[0].classList.remove("visible");
 			// Cacher la boîte de réception et afficher un message d'erreur
-			chatBox.innerHTML = `<div class="error outlined">
-					<p>
-						Impossible de joindre le serveur de tchat pour le moment.
-						<br>
-						Tentative de reconnexion... <img src="/view/img/loading.gif" alt="Chargement...">
-					</p>
-				</div>`;
+			chatBox.innerHTML = '<div class="error outlined">' +
+				'<p>' + error.message +
+				'<br> ' +
+				'Tentative de reconnexion... <img src="/view/img/loading.gif" alt="Chargement...">' +
+				'</p>' +
+				'</div>';
 		});
 }
 
@@ -105,25 +109,23 @@ function setUsername(input) {
 		})
 		.then((response) => {
 			// Récupérer l'id de l'utilisateur renvoyé par request.php
-			let responseStr = response.data.toString();
 			//Définir les messages d'erreur potentiels dont il faut vérifier la présence dans la réponse
-			let errorMsg = ['Impossible', 'Warning', 'Error'];
-			if (!errorMsg.some(eMsg => responseStr.toLowerCase().includes(eMsg.toLowerCase()))) {
-				// Bloquer le champ de saisie username & appliquer style validé
+			if (response.data.error) {
+				// Envoyer une erreur s'il y a lieu
+				throw new Error(response.data.error);
+			} else {
+				// Mettre à jour la page
+				thisUserId = response.data[0].id;
 				updatePage();
-				thisUserId = parseInt(responseStr);
+				// Bloquer le champ de saisie username & appliquer style validé
 				document.getElementsByName("setName")[0].disabled = true;
 				document.getElementsByClassName("username")[0].disabled = true;
 				document.getElementsByName("sendMsg")[0].disabled = false;
 				document.getElementsByClassName("send-msg")[0].disabled = false;
 			}
-			else {
-				// Envoyer une erreur s'il y a lieu
-				throw new Error(response.data);
-			}
 		})
 		.catch((error) => {
-			console.error(error);
+			console.error(error.message);
 		});
 }
 
@@ -137,21 +139,19 @@ function sendMsg(input) {
 			})
 			.then((response) => {
 				//Définir les messages d'erreur potentiels dont il faut vérifier la présence dans la réponse
-				let errorMsg = ['Impossible', 'Warning', 'Error'];
-				if (!errorMsg.some(eMsg => response.data.toLowerCase().includes(eMsg.toLowerCase()))) {
-
+				if (response.data.error) {
+					// Envoyer une erreur s'il y a lieu
+					throw new Error(response.data.error);
+				} else {
+					// Mettre la page à jour
 					updatePage();
 					// Mettre le curseur en bas
 					let chatBox = document.getElementById("chatBox");
-					chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight;
-				}
-				else {
-					// Envoyer une erreur s'il y a lieu
-					throw new Error(response.data);
+					chatBox.scrollTop = chatBox.scrollHeight;
 				}
 			})
 			.catch((error) => {
-				console.error(error);
+				console.error(error.message);
 			});
 	}
 	else {
