@@ -132,10 +132,16 @@ function sendMsg(input) {
 				userId: thisUserId,
 			})
 			.then((response) => {
-				updatePage();
-				// Mettre le curseur en bas
-				let chatBox = document.getElementById("chatBox");
-				chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight;
+				if (!response.data.includes("Impossible")) {
+					updatePage();
+					// Mettre le curseur en bas
+					let chatBox = document.getElementById("chatBox");
+					chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight;
+				}
+				else {
+					// Envoyer une erreur s'il y a lieu
+					throw new Error(response.data);
+				}
 			})
 			.catch((error) => {
 				console.error(error);
