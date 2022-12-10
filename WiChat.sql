@@ -21,16 +21,6 @@ SET time_zone = "+00:00";
 -- Base de données : `wichat`
 --
 
--- --------------------------------------------------------
--- Utilisateurs
-CREATE USER 'reader'@'localhost' IDENTIFIED BY 'WClr4--'; -- Lecture
-CREATE USER 'writer'@'localhost' IDENTIFIED BY 'WClw2--'; -- Écriture
-CREATE USER 'editor'@'localhost' IDENTIFIED BY 'WClrw6--'; -- Modification
--- Privilèges
-GRANT SELECT ON WiChat.* TO 'reader'@'localhost';
-GRANT INSERT ON WiChat.* TO 'writer'@'localhost';
-GRANT SELECT, INSERT ON WiChat.* TO 'editor'@'localhost';
-
 --
 -- Structure de la table `messages`
 --
@@ -86,3 +76,13 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- --------------------------------------------------------
+-- Utilisateurs
+CREATE USER 'reader'@'localhost' IDENTIFIED BY 'WClr4--'; -- Lecture
+CREATE USER 'writer'@'localhost' IDENTIFIED BY 'WClw2--'; -- Écriture
+CREATE USER 'editor'@'localhost' IDENTIFIED BY 'WClrw6--'; -- Modification
+-- Privilèges
+GRANT SELECT ON WiChat.* TO 'reader'@'localhost';
+GRANT INSERT ON WiChat.* TO 'writer'@'localhost';
+GRANT SELECT, INSERT ON WiChat.* TO 'editor'@'localhost';
