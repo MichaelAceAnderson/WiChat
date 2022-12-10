@@ -437,7 +437,7 @@ header h4 {
 /* Survol des champs de saisie textuels */
 .main .chat-container .inputs input[type="text"]:focus {
   transition: 0.3s;
-  box-shadow: inset -1px -1px 0px 1px dodgerblue;
+  box-shadow: inset -1px -1px 0px 1px steelblue;
 }
 
 /* Clic sur les champs de saisie textuels */
