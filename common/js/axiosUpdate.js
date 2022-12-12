@@ -89,7 +89,7 @@ function updatePage() {
 					<p>
 						Impossible de joindre le serveur de tchat pour le moment.
 						<br>
-						Tentative de reconnexion... <img src="/common/img/loading.gif" height="30" style="vertical-align: middle;">
+						Tentative de reconnexion... <img src="/common/img/loading.gif" alt="Chargement...">
 					</p>
 				</div>`;
 		});

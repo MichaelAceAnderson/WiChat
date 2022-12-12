@@ -331,6 +331,7 @@ header h4 {
 
 .main .chat-container #chatBox img {
   vertical-align: middle;
+  height: 30px;
 }
 
 /* Messages */
