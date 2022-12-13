@@ -60,7 +60,9 @@ function updatePage() {
 	axios
 		.get("/pages/utils/request.php?display")
 		.then((response) => {
-			if (!response.data.toString().includes("Impossible")) {
+			//Définir les messages d'erreur potentiels dont il faut vérifier la présence dans la réponse
+			let errorMsg = ['Impossible', 'Warning', 'Error'];
+			if (!errorMsg.some(eMsg => response.data.toLowerCase().includes(eMsg.toLowerCase()))) {
 				// Si la réponse ne comprend pas un message "impossible"
 				chatBox.innerHTML = response.data;
 				msgList = chatBox.getElementsByClassName("msg");
@@ -103,11 +105,13 @@ function setUsername(input) {
 		})
 		.then((response) => {
 			// Récupérer l'id de l'utilisateur renvoyé par request.php
-			let reponseStr = response.data.toString();
-			if (!reponseStr.includes("Impossible")) {
+			let responseStr = response.data.toString();
+			//Définir les messages d'erreur potentiels dont il faut vérifier la présence dans la réponse
+			let errorMsg = ['Impossible', 'Warning', 'Error'];
+			if (!errorMsg.some(eMsg => responseStr.toLowerCase().includes(eMsg.toLowerCase()))) {
 				// Bloquer le champ de saisie username & appliquer style validé
 				updatePage();
-				thisUserId = parseInt(reponseStr);
+				thisUserId = parseInt(responseStr);
 				document.getElementsByName("setName")[0].disabled = true;
 				document.getElementsByClassName("username")[0].disabled = true;
 				document.getElementsByName("sendMsg")[0].disabled = false;
@@ -132,7 +136,10 @@ function sendMsg(input) {
 				userId: thisUserId,
 			})
 			.then((response) => {
-				if (!response.data.includes("Impossible")) {
+				//Définir les messages d'erreur potentiels dont il faut vérifier la présence dans la réponse
+				let errorMsg = ['Impossible', 'Warning', 'Error'];
+				if (!errorMsg.some(eMsg => response.data.toLowerCase().includes(eMsg.toLowerCase()))) {
+
 					updatePage();
 					// Mettre le curseur en bas
 					let chatBox = document.getElementById("chatBox");
