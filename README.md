@@ -12,13 +12,11 @@ Vérifier l'arrivée d'un nouveau message, sinon ne pas mettre à jour le conten
 
 ## Modèle
 
-Passer sous PostgreSQL
-Requêtes préparées
-
 ## Sécurité & Technique
 
 Fichier .htaccess (Optionnel)
 Mapping URL (Optionnel) [Redirection htaccess ?]
+Meilleure séparation Vue(pages), contrôleur(axios), modèle(request)
 
 ## Accessibilité & Compatibilité
 
