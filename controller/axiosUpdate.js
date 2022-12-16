@@ -58,7 +58,7 @@ window.addEventListener(
 function updatePage() {
 	let chatBox = document.getElementById("chatBox");
 	axios
-		.get("/pages/utils/request.php?display")
+		.get("/model/request.php?display")
 		.then((response) => {
 			//Définir les messages d'erreur potentiels dont il faut vérifier la présence dans la réponse
 			let errorMsg = ['Impossible', 'Warning', 'Error'];
@@ -91,7 +91,7 @@ function updatePage() {
 					<p>
 						Impossible de joindre le serveur de tchat pour le moment.
 						<br>
-						Tentative de reconnexion... <img src="/common/img/loading.gif" alt="Chargement...">
+						Tentative de reconnexion... <img src="/view/img/loading.gif" alt="Chargement...">
 					</p>
 				</div>`;
 		});
@@ -100,7 +100,7 @@ function updatePage() {
 function setUsername(input) {
 	// Envoi d'une requête POST pour enregistrer/connecter l'utilisateur
 	axios
-		.post("/pages/utils/request.php?setUser", {
+		.post("/model/request.php?setUser", {
 			username: input.value,
 		})
 		.then((response) => {
@@ -131,7 +131,7 @@ function sendMsg(input) {
 	if (thisUserId != -1) {
 		// Envoi d'une requête POST pour envoyer le message
 		axios
-			.post("/pages/utils/request.php?send", {
+			.post("/model/request.php?send", {
 				msg: input.value,
 				userId: thisUserId,
 			})

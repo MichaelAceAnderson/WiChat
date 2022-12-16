@@ -22,14 +22,14 @@ Chrome CSS prefix: -webkit
   font-style: normal;
   font-weight: 400;
   src: local("Agency FB"), local("AgencyFB-Regular"),
-    url(/common/fonts/agencyfb.ttf) format("truetype");
+    url(/view/fonts/agencyfb.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "LCD";
   font-style: normal;
   font-weight: 400;
-  src: local("LCD"), url(/common/fonts/LCD.ttf) format("truetype");
+  src: local("LCD"), url(/view/fonts/LCD.ttf) format("truetype");
 }
 
 * {
@@ -58,7 +58,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-image: url(/common/img/circuits.jpg);
+  background-image: url(/view/img/circuits.jpg);
   color: var(--textcolor);
   min-height: 100%;
   position: relative;
@@ -155,7 +155,7 @@ header h4 {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-image: url(/common/img/bg.jpg);
+  background-image: url(/view/img/bg.jpg);
   transition: 0.3s;
 }
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml" lang="fr">
-<?php include_once("" . $_SERVER['DOCUMENT_ROOT'] . "/common/includes/head.php"); ?>
-<?php include_once("" . $_SERVER['DOCUMENT_ROOT'] . "/common/includes/header.php"); ?>
+<?php include_once("" . $_SERVER['DOCUMENT_ROOT'] . "/view/includes/head.php"); ?>
+<?php include_once("" . $_SERVER['DOCUMENT_ROOT'] . "/view/includes/header.php"); ?>
 
 <body>
 	<?php
