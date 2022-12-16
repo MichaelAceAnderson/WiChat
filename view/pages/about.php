@@ -19,20 +19,20 @@ if (isset($_POST["submit"])) {
 ?>
 
 <section class="main" id="main">
-	<div class="title outlined">
-		<h1>À propos</h1>
-		<hr>
-	</div>
+    <div class="title outlined">
+        <h1>À propos</h1>
+        <hr>
+    </div>
 
-	<div class="content">
-		<p class="outlined">
-			Ce site a été réalisé entièrement avec HTML5, CSS3, JavaScript ES 2020. Sans Framework. À la mano. Et ça c'est la classe.
-		</p>
-		<img src="https://i.kym-cdn.com/entries/icons/original/000/028/021/work.jpg" />
+    <div class="content">
+        <p class="outlined">
+            Ce site a été réalisé entièrement avec HTML5, CSS3, JavaScript ES 2020. Sans Framework. À la mano. Et ça
+            c'est la classe.
+        </p>
 
-		<form action="#" method="post" class="contact">
-			<h1>Envoyer un message</h1>
-			<?php
+        <form action="#" method="post" class="contact">
+            <h1>Envoyer un message</h1>
+            <?php
 			if (isset($_POST["submit"])) {
 				if (empty($_POST["mail"])) {
 					echo	'<div class="response error">
@@ -57,11 +57,11 @@ if (isset($_POST["submit"])) {
 				}
 			}
 			?>
-			<input type="text" name="mail" placeholder="Votre e-mail" />
-			<textarea placeholder="Votre message" name="msg"></textarea>
-			<button type="submit" name="submit">Envoyer</button>
-		</form>
-	</div>
+            <input type="text" name="mail" placeholder="Votre e-mail" />
+            <textarea placeholder="Votre message" name="msg"></textarea>
+            <button type="submit" name="submit">Envoyer</button>
+        </form>
+    </div>
 
 </section>
 
