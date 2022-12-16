@@ -1,5 +1,5 @@
 CREATE SCHEMA wichat;
-SET schema 'wichat';
+SET SCHEMA 'wichat';
 START TRANSACTION;
 SET TIME ZONE 'Europe/Paris';
 
