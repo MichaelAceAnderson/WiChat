@@ -23,6 +23,7 @@ Chrome CSS prefix: -webkit
   font-weight: 400;
   src: local("Agency FB"), local("AgencyFB-Regular"),
     url(/view/fonts/agencyfb.ttf) format("truetype");
+  font-display: swap;
 }
 
 @font-face {
@@ -30,6 +31,7 @@ Chrome CSS prefix: -webkit
   font-style: normal;
   font-weight: 400;
   src: local("LCD"), url(/view/fonts/LCD.ttf) format("truetype");
+  font-display: swap;
 }
 
 * {

@@ -9,7 +9,6 @@ Ajouter système de notifications si le contrôleur indique une maj du contenu e
 
 ### Contrôleur
 
-Passer la réponse de request.php en json et prendre en charge depuis axios
 Vérifier l'arrivée d'un nouveau message, sinon ne pas mettre à jour le contenu et rabaisser le scroll de chatBox
 
 ### Modèle
@@ -20,8 +19,6 @@ Fichier .htaccess (Optionnel)
 Mapping URL (Optionnel) [Redirection htaccess ?]
 
 ### Accessibilité & Compatibilité
-
-Utiliser Edge DevTools pour détecter les divers problèmes
 
 ### Style
 
