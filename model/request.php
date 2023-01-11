@@ -52,6 +52,9 @@ if (isset($_GET['display'])) {
 		"fetchMessages",
 		[]
 	);
+	//Fermeture de la base de données
+	pg_close($dbConnection);
+
 	if (!$result) {
 		$errorMsg['error'] = "Impossible d'afficher les messages: Le serveur ne répond pas correctement";
 		returnJsonHttpResponse(true, $errorMsg);
@@ -65,9 +68,6 @@ if (isset($_GET['display'])) {
 		}
 		returnJsonHttpResponse(true, $jsonResult);
 	}
-
-	//Fermeture de la base de données
-	pg_close($dbConnection);
 }
 
 // Enregistrer/Connecter un utilisateur
@@ -141,6 +141,8 @@ if (isset($_GET['setUser'])) {
 						$_POST['username']
 					]
 				);
+				//Fermeture de la connexion à la base de données
+				pg_close($dbConnection);
 				if (!$result) {
 					$errorMsg['error'] = "Impossible de vous connecter: L'identifiant de l'utilisateur n'a pas pu être récupéré";
 					returnJsonHttpResponse(true, $errorMsg);
@@ -155,6 +157,8 @@ if (isset($_GET['setUser'])) {
 				}
 			}
 		} else {
+			//Fermeture de la connexion à la base de données
+			pg_close($dbConnection);
 			// Si l'utilisateur existe
 			//Envoyer l'id au contrôleur
 			$jsonResult = array();
@@ -163,9 +167,9 @@ if (isset($_GET['setUser'])) {
 			}
 			returnJsonHttpResponse(true, $jsonResult);
 		}
+	} else {
 		//Fermeture de la connexion à la base de données
 		pg_close($dbConnection);
-	} else {
 		// Si aucun nom d'utilisateur n'a été spécifié
 		$errorMsg['error'] = "Impossible de vous connecter: Vous devez saisir un nom d'utilisateur !";
 		returnJsonHttpResponse(true, $errorMsg);
@@ -204,14 +208,16 @@ if (isset($_GET['send'])) {
 				$_POST['msg']
 			]
 		);
+		//Fermeture de la connexion à la base de données
+		pg_close($dbConnection);
 		if (!$result) {
 			$errorMsg['error'] = "Impossible d'envoyer le message: Le transfert du message à la base de données a échoué";
 			returnJsonHttpResponse(true, $errorMsg);
 			exit($error['error']);
 		}
+	} else {
 		//Fermeture de la connexion à la base de données
 		pg_close($dbConnection);
-	} else {
 		$errorMsg['error'] = "Impossible d'envoyer le message: Vous devez saisir un message !";
 		returnJsonHttpResponse(true, $errorMsg);
 		exit($error['error']);

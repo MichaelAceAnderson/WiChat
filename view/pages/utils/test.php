@@ -95,6 +95,9 @@ if (isset($_GET['fetch'])) {
         "fetchMessages",
         []
     );
+    //Fermeture de la base de données
+    pg_close($dbConnection);
+
     if (!$result) {
         exit("Impossible d'afficher les messages");
     } else {
@@ -106,9 +109,6 @@ if (isset($_GET['fetch'])) {
         }
         returnJsonHttpResponse(true, $jsonResult);
     }
-
-    //Fermeture de la base de données
-    pg_close($dbConnection);
 } else {
 ?>
 <script src="/common/lib/axios.js"></script>
