@@ -22,8 +22,7 @@
         onload="sheetLoaded('light')" onerror="sheetError('light')">
     <link href="/view/style/styleDark.css" rel="stylesheet" media="(prefers-color-scheme: dark)"
         onload="sheetLoaded('dark')" onerror="sheetError('dark')">
-    <link href="/view/style/styleMobile.css" rel="stylesheet" media="screen and (max-width: 600px)"
-        onload="sheetLoaded('mobile')" onerror="sheetError('mobile')">
+    <link href="/view/style/styleMobile.css" rel="stylesheet" onload="sheetLoaded('mobile')" onerror="sheetError('mobile')">
     <link href="/view/style/stylePrint.css" rel="stylesheet" media="print" onload="sheetLoaded('print')"
         onerror="sheetError('print')">
 
