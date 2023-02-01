@@ -10,64 +10,71 @@ Chrome CSS prefix: -webkit
 
 /* Large screens (+1080p) */
 @media screen and (min-width: 1500px) {
+
     /* Titre */
-    .main .title h1{
+    .main .title h1 {
         font-size: 35px;
     }
-    /* MESSAGES */    
+
+    /* MESSAGES */
     /* Date & heure */
     .main .chat-container .msg .timestamp {
-        font-size: 20px;
+        font-size: 15px;
     }
-    
+
     /* Nom d'utilisateur */
     .main .chat-container .msg .nickname {
-        font-size: 20px;
+        font-size: 15px;
     }
-    
+
     /* Contenu du message */
     .main .chat-container .msg .content {
-        font-size: 30px;
+        font-size: 20px;
     }
 
     /* CHAMPS DE SAISIE*/
     /* Conteneur de champs */
     .main .chat-container .inputs {
-      height: 50px;
+        height: 40px;
     }
+
     /* Champs textuels */
     .main .chat-container .inputs input[type="text"] {
-        font-size: 20px;
+        font-size: 15px;
     }
 }
 
 /* Phones */
 @media screen and (max-width: 780px) {
+
     /* Titre */
-    .main .title h1{
+    .main .title h1 {
         font-size: 25px;
     }
+
     /* MESSAGES */
     /*Contenu du message */
-	.main .chat-container .msg .content {
+    .main .chat-container .msg .content {
         font-size: 20px;
     }
 
     /* CHAMPS DE SAISIE */
     /* Conteneur de champs */
-    .main .chat-container .inputs{
+    .main .chat-container .inputs {
         height: 80px;
         width: 100%;
     }
+
     /* Champs textuels */
     .main .chat-container .inputs input[type="text"].username,
     .main .chat-container .inputs input[type="text"].send-msg {
         width: 100%;
         height: 40px;
     }
+
     /* Boutons */
     .main .chat-container .inputs input[type="submit"] {
-      height: 40px;
+        height: 40px;
     }
-    
+
 }

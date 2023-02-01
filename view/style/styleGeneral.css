@@ -327,7 +327,7 @@ header h4 {
 
 /* Boîte de réception */
 .main .chat-container #chatBox {
-  max-height: 75vh;
+  max-height: 60vh;
   overflow: auto;
   background: rgb(35 35 35 / 70%);
 }
@@ -357,7 +357,6 @@ header h4 {
 /* Date & heure */
 .main .chat-container .msg .timestamp {
   font-size: 15px;
-  padding: 0 10px;
   color: white;
 }
 
@@ -373,7 +372,7 @@ header h4 {
 /* Contenu du message */
 .main .chat-container .msg .content {
   padding: 7px 0px;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 /* Message entrant */
