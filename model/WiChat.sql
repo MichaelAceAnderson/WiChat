@@ -41,9 +41,9 @@ COMMIT;
 
 -- --------------------------------------------------------
 -- Utilisateurs
-CREATE USER reader WITH PASSWORD 'WClr4--';
-CREATE USER writer WITH PASSWORD 'WClw2--';
-CREATE USER editor WITH PASSWORD 'WClrw6--';
+CREATE USER reader WITH PASSWORD 'PGlr4--';
+CREATE USER writer WITH PASSWORD 'PGlw2--';
+CREATE USER editor WITH PASSWORD 'PGlrw6--';
 -- Privilèges
 GRANT SELECT ON ALL TABLES IN SCHEMA wichat TO reader;
 GRANT INSERT ON ALL TABLES IN SCHEMA wichat TO writer;
