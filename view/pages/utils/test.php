@@ -78,7 +78,7 @@ if (isset($_GET['error'])) {
 }
 if (isset($_GET['fetch'])) {
 
-    $dbConnection = pg_connect("host=localhost port=5432 dbname=WiChat user=reader password=WClr4--")
+    $dbConnection = pg_connect("host=localhost port=5432 dbname=wichat user=wc_reader password=WClr4--")
         or exit("Impossible de joindre le serveur de tchat");
 
     $result = pg_prepare(
@@ -110,7 +110,7 @@ if (isset($_GET['fetch'])) {
         returnJsonHttpResponse(true, $jsonResult);
     }
 } else {
-?>
+    ?>
 <script src="/common/lib/axios.js"></script>
 <script>
 var reponseObtenue;

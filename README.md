@@ -31,7 +31,7 @@ Feuille de style d'impression (Optionnel)
 
 #### Accès superuser
 
-postgres:PG770rwx
+postgres:WC770rwx
 
 #### Création de la base de données
 

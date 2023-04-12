@@ -37,21 +37,50 @@ INSERT INTO users (id, nickname) VALUES
 
 ALTER TABLE messages
   ADD CONSTRAINT messages_author_fk FOREIGN KEY (authorId) REFERENCES users (id);
-COMMIT;
+
 
 -- --------------------------------------------------------
--- Utilisateurs
-CREATE USER reader WITH PASSWORD 'PGlr4--';
-CREATE USER writer WITH PASSWORD 'PGlw2--';
-CREATE USER editor WITH PASSWORD 'PGlrw6--';
--- Privilèges
-GRANT SELECT ON ALL TABLES IN SCHEMA wichat TO reader;
-GRANT INSERT ON ALL TABLES IN SCHEMA wichat TO writer;
-GRANT SELECT, INSERT ON ALL TABLES IN SCHEMA wichat TO editor;
-GRANT USAGE ON SCHEMA wichat TO reader;
-GRANT USAGE ON SCHEMA wichat TO writer;
-GRANT USAGE ON SCHEMA wichat TO editor;
 
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA wichat TO reader;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA wichat TO writer;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA wichat TO editor;
+-- Utilisateurs
+DO
+$do$
+BEGIN
+  IF NOT EXISTS (select * from pg_user where usename = 'wc_reader') then
+    CREATE USER wc_reader WITH PASSWORD 'WClr4--';
+    ELSE
+    DROP OWNED BY wc_reader;
+    DROP USER wc_reader;
+    CREATE USER wc_reader WITH PASSWORD 'WClr4--';
+  END IF;
+  IF NOT EXISTS (select * from pg_user where usename = 'wc_writer') then
+    CREATE USER wc_writer WITH PASSWORD 'WClw2--';
+    ELSE
+    DROP OWNED BY wc_writer;
+    DROP USER wc_writer;
+    CREATE USER wc_writer WITH PASSWORD 'WClw2--';
+  END IF;
+  IF NOT EXISTS (select * from pg_user where usename = 'wc_editor') then
+    CREATE USER wc_editor WITH PASSWORD 'WClrw6--';
+    ELSE
+    DROP OWNED BY wc_editor;
+    DROP USER wc_editor;
+    CREATE USER wc_editor WITH PASSWORD 'WClrw6--';
+  END IF;
+END
+$do$;
+
+-- Privilèges
+GRANT SELECT ON ALL TABLES IN SCHEMA wichat TO wc_reader;
+GRANT INSERT ON ALL TABLES IN SCHEMA wichat TO wc_writer;
+GRANT SELECT, INSERT ON ALL TABLES IN SCHEMA wichat TO wc_editor;
+GRANT USAGE ON SCHEMA wichat TO wc_reader;
+GRANT USAGE ON SCHEMA wichat TO wc_writer;
+GRANT USAGE ON SCHEMA wichat TO wc_editor;
+
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA wichat TO wc_reader;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA wichat TO wc_writer;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA wichat TO wc_editor;
+
+COMMIT; -- Fin de la transaction
+
+-- --------------------------------------------------------

@@ -31,7 +31,7 @@ function returnJsonHttpResponse($success, $data)
 
 //Affichage de messages
 if (isset($_GET['display'])) {
-    $dbConnection = pg_connect("host=localhost port=5432 dbname=WiChat user=reader password=PGlr4--");
+    $dbConnection = pg_connect("host=localhost port=5432 dbname=wichat user=wc_reader password=WClr4--");
     if (!$dbConnection) {
         $errorMsg['error'] = "Impossible d'afficher les messages: Le serveur est injoignable !";
         returnJsonHttpResponse(true, $errorMsg);
@@ -74,9 +74,9 @@ if (isset($_GET['display'])) {
 if (isset($_GET['setUser'])) {
     // Tenter d'ouvrir la connexion à la base de données
     //Connexion à l'utilisateur PostgreSQL
-    $dbConnection = pg_connect("host=localhost port=5432 dbname=WiChat user=editor password=PGlrw6--");
+    $dbConnection = pg_connect("host=localhost port=5432 dbname=wichat user=wc_editor password=WClrw6--");
     if (!$dbConnection) {
-        $errorMsg['error'] = "Impossible de vous connecter: Le serveur est injoignable";
+        $errorMsg['error'] = "Impossible de vous connecter: Le serveur de données est injoignable ou mal configuré";
         returnJsonHttpResponse(true, $errorMsg);
         exit($error['error']);
     }
@@ -182,7 +182,7 @@ if (isset($_GET['setUser'])) {
 if (isset($_GET['send'])) {
     // Tenter d'ouvrir la connexion à la base de données
     //Connexion à l'utilisateur MySQL
-    $dbConnection = pg_connect("host=localhost port=5432 dbname=WiChat user=writer password=PGlw2--");
+    $dbConnection = pg_connect("host=localhost port=5432 dbname=wichat user=wc_writer password=WClw2--");
     if (!$dbConnection) {
         $errorMsg['error'] = "Impossible d'envoyer le message: Le serveur est injoignable";
         returnJsonHttpResponse(true, $errorMsg);
