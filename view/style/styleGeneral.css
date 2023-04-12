@@ -221,6 +221,7 @@ header h4 {
     background: black;
     color: white;
     padding: 15px;
+    font-size: 25px;
 }
 
 .main form.contact input[type="text"],
@@ -315,8 +316,9 @@ header h4 {
     text-align: center;
 }
 
-.error p {
+.error * {
     display: inline;
+    font-size: 25px;
 }
 
 /* Conteneur du tchat */
