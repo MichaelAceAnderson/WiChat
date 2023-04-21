@@ -2,6 +2,8 @@
 
 WiChat est un projet de chat en ligne, développé en PHP, HTML, CSS, JS (avec Axios) & SQL.
 
+![WiChat](HomePage.jpg)
+
 ## To-do
 
 - [ ] Réparer le scroll ou ne mettre la page à jour qu'à l'envoi/la réception d'un message
